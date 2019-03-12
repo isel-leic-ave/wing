@@ -1,2 +1,3 @@
-# wing
-Template solution for AVE course 2018-19 summer 
+Enunciados dos trabalhos de AVE no semestre de verão 2018/19
+
+* [Trabalho 1](trabalho1)
