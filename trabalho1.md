@@ -1,5 +1,7 @@
 # Enunciado do Trabalho 1
 
+**Data limite de entrega: 29 de Março**
+
 ## Parte 1
 
 Pretende-se desenvolver uma biblioteca **Csvier** para processamento de dados em
