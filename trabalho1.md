@@ -55,9 +55,9 @@ Os métodos de `CsvParser` têm o seguinte comportamento:
   fornecidos no método `Load()`, usando o construtor que tem o tipo de parâmetros
   especificados no método `CtorArg` (pela respectiva ordem) e inicializando os
   campos e propriedades que foram especificados em `PropArg()` e `FieldArg()`.
-  Assuma que os tipos de parâmetros do construtor, campos ou propriedades, têm
+  **Assuma que os tipos de parâmetros do construtor, campos ou propriedades, têm
   sempre um método estático `Parse(string)`, que converte uma `string` num valor
-  do respectivo tipo.
+  do respectivo tipo.**
 
 A biblioteca **Clima** disponibiliza a classe `WeatherWebApi` que permite
 consultar as informações climáticas de _World Weather Online_ e pesquisar
@@ -101,6 +101,12 @@ object[] items = pastWeather
                 .Load(sampleWeatherInLisbonFiltered)
                 .Parse();
 ```
+
+Note que os valores do CSV que são passados ao construtor têm que ser
+convertidos de `string` num valor do tipo do parâmetro.
+**Para tal assuma que os tipos de parâmetros do construtor têm sempre um método
+estático `Parse(string)`, que converte uma `string` num valor do respectivo
+tipo.**
 
 Implemente **testes unitários** que validem o correcto funcionamento da
 utilização de `CtorArg`, `Load` e `Parse`.
