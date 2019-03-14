@@ -2,8 +2,6 @@
 
 **Data limite de entrega: 29 de Março**
 
-## Parte 1
-
 Pretende-se desenvolver uma biblioteca **Csvier** para processamento de dados em
 formato CSV. Esta biblioteca disponibiliza uma classe `CsvParser` com a API
 pública apresentada no diagrama seguinte:
@@ -19,8 +17,8 @@ string weatherJanuaryInLisbon = ...;
 CsvParser pastWeather = new CsvParser(typeof(WeatherInfo))
                 .CtorArg("date", 0)
                 .CtorArg("tempC", 2)
-                .PropArg("precipMM", 11)
-                .PropArg("desc", 10);
+                .PropArg("PrecipMM", 11)
+                .PropArg("Desc", 10);
 object[] items = pastWeather
                     .Load(weatherJanuaryInLisbon)
                     .RemoveWith("#")
@@ -72,19 +70,59 @@ para realizar os pedidos HTTP à Web API.
 A estrutura dos projectos **Csvier** e **Clima** é fornecida na solução Visual
 Studio **Wing** disponível no github: https://github.com/isel-leic-ave/wing
 
-1. Complete a implementação de `Csvier` realizando testes unitários que validem
-   o seu correcto funcionamento.
-2. Complete a implementação de `WeatherWebApi` de modo a passar os testes
-   unitários de `ClimaTest`.
+## Parte 1
+
+Comece por implementar **SÓ** os métodos `CtorArg`, `Load` e `Parse` de
+`CsvParser` usando uma amostra "limpa" de um CSV com alguns dados climatéricos,
+como por exemplo:
+
+```
+2019-01-01,24,17,63,6,10,74,ENE,116,http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png,Partly cloudy,0.0,59,10,1031,43,14,57,6,43,13,56,11,17,13,56
+2019-01-02,24,18,64,6,9,179,S,116,http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png,Partly cloudy,0.0,57,10,1030,15,14,57,6,42,13,56,11,17,13,56
+2019-01-03,24,16,60,7,11,89,E,113,http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0001_sunny.png,Sunny,0.0,67,10,1026,3,13,55,7,45,12,54,11,18,12,54
+2019-01-04,24,16,60,9,15,78,ENE,116,http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png,Partly cloudy,0.1,73,10,1028,27,14,57,9,48,13,55,14,23,13,55
+```
+
+Esta amostra já está limpa de comentários (linhas com `#`), da linha `Not
+Available` e das linhas de índice par, podendo ser processado apenas com as
+seguintes instruções:
+
+```csharp
+string sampleWeatherInLisbonFiltered = ...;
+CsvParser pastWeather = new CsvParser(typeof(WeatherInfo))
+                .CtorArg("date", 0)
+                .CtorArg("tempC", 2);
+object[] items = pastWeather
+                .Load(sampleWeatherInLisbonFiltered)
+                .Parse();
+```
+
+Implemente **testes unitários** que validem o correcto funcionamento da
+utilização de `CtorArg`, `Load` e `Parse`.
 
 ## Parte 2
 
-Pretende-se que a correspondência entre os parâmetros do construtor, propriedades ou campos e as colunas dos dados CSV possa ser especificada nas classes por intermédio de _custom attributes_. 
-
-Acrescente a **Csvier** esta capacidade especificando uma API baseada em custom_ attributes_ para este efeito.
-
-Adicione os respectivos testes unitários.
+Complete a definição de `CsvParser` implementando os métodos em falta e
+realizando **testes unitários** que validem o seu correcto funcionamento.
 
 ## Parte 3
 
-Crie um novo projecto com uma estrutura semelhante ao de **Clima** para ler dados CSV de um outro Feed ou Web API à sua escolha. Adicione os respectivos testes unitários.
+Complete a implementação de `WeatherWebApi` de modo a passar os testes unitários
+de `ClimaTest`.
+
+## Parte 4
+
+Pretende-se que a correspondência entre os parâmetros do construtor,
+propriedades ou campos e as colunas dos dados CSV possa ser especificada nas
+classes por intermédio de _custom attributes_. 
+
+Acrescente a **Csvier** esta capacidade especificando uma API baseada em custom_
+attributes_ para este efeito.
+
+Adicione os respectivos testes unitários.
+
+## Parte 5
+
+Crie um novo projecto com uma estrutura semelhante ao de **Clima** para ler
+dados CSV de um outro Feed ou Web API à sua escolha.
+Adicione os respectivos testes unitários.
