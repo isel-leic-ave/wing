@@ -10,8 +10,8 @@ namespace Clima
     {
         public DateTime Date { get;  }
         public int TempC { get; }
-        public double PrecipMM { get; }
-        public String Desc { get; }
+        public double PrecipMM { get; set; }
+        public String Desc { get; set; }
 
         public WeatherInfo()
         {

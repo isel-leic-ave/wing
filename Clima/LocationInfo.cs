@@ -8,10 +8,14 @@ namespace Clima
 {
     public class LocationInfo
     {
-        public String Country { get;  }
-        public String Region { get; }
-        public double Latitude { get; }
-        public double Longitude { get; }
+        public String Country { get; set; }
+        public String Region { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+
+        public LocationInfo()
+        {
+        }
 
         public LocationInfo(string country, string region, double latitude, double longitude)
         {
