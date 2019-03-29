@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clima", "Clima\Clima.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Request", "Request\Request.csproj", "{74B49F1B-C790-4809-8488-1C97CF567995}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mocky", "Mocky\Mocky.csproj", "{5543E351-620A-4FDF-A9F4-C9A471604337}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockyTest", "MockyTest\MockyTest.csproj", "{91361E11-37B5-465C-A9CE-24ADE8342395}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{74B49F1B-C790-4809-8488-1C97CF567995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74B49F1B-C790-4809-8488-1C97CF567995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74B49F1B-C790-4809-8488-1C97CF567995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5543E351-620A-4FDF-A9F4-C9A471604337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5543E351-620A-4FDF-A9F4-C9A471604337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5543E351-620A-4FDF-A9F4-C9A471604337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5543E351-620A-4FDF-A9F4-C9A471604337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91361E11-37B5-465C-A9CE-24ADE8342395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91361E11-37B5-465C-A9CE-24ADE8342395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91361E11-37B5-465C-A9CE-24ADE8342395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91361E11-37B5-465C-A9CE-24ADE8342395}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
