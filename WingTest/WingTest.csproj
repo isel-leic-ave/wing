@@ -55,6 +55,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="CsvParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
