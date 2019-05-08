@@ -4,7 +4,13 @@
 
 **Objectivos:** Prática com Delegates, Genéricos e Iteradores _lazy_ (_yield generators_).
 
-## Parte 1 --  `CsvParser` _lazy_
+## Parte 1 --  `CsvParser` genérica e _lazy_
+
+Torne a API de `CsvParser` genérica passando este tipo a ser `CsvParser<T>`.
+Remova o parâmetro `klass` do seu construtor, passando este a ser determinado a
+partir de `T`.
+Por sua vez o método `Parse()` deixa de retornar `object[]` e passa a retornar
+`IEnumerable<T>`
 
 Remova da classe `CsvParser` todas as estruturas auxiliares com manutenção de
 estado das linhas processadas (e.g. listas). O resultado do processamento das
@@ -21,10 +27,11 @@ seguintes:
 ```csharp
 Mocker mockCalc ...
 ...
-mockCalc.When("Add").Then<int, int>(args => args[0] + args[1]);
+mockCalc.When("Add").Then<int, int, int>((a,b) => a + b);
 ...
 Mocker mockReq = ...
 ...
+mockReq.When("GetBody").Then<string, string>(url => ...);
 mockReq.When("Dispose").Then(() => {/* do nothing */});
 ```
 
@@ -37,7 +44,7 @@ lança excepção. A listagem seguinte apresenta alguns exemplos de utilização
 incongruentes que devem dar excepção na execução do `Then`.
 
 ```csharp
-mockCalc.When("Add").Then<int, double>(args => args[0] + args[1]);
+mockCalc.When("Add").Then<int, int, double>((a, b) => a + b);
 ...
 mockReq.When("Dispose").Then<string>((arg) => {/* do nothing */});
 ```
