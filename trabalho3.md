@@ -4,6 +4,19 @@
 
 **Objectivos:** Prática com Delegates, Genéricos e Iteradores _lazy_ (_yield generators_).
 
+**Entregas:**
+* Solução visual studio Wing completa com **todos os testes unitários** necessários
+  à validação das funcionalidades pedidas.
+* Wiki no repositório Github do grupo com explicação das principais decisões e opções
+  tomadas na resolução dos requisitos do Trabalho 3. Exemplo de alguns aspectos
+  (não limitados a estes):
+  * Quais as estruturas de dados auxiliares que foram eliminadas do `CsvParser<T>`
+    em substituição por sequências de tipo `IEnumerable<T>`.
+  * Definição das assinaturas dos novos métodos `Then()` da API da biblioteca Mocky.
+  * Quais as a estruturas alteradas ou adicionadas às classes da biblioteca Mocky.
+  * Outros aspectos.
+
+
 ## Parte 1 --  `CsvParser` genérica e _lazy_
 
 Torne a API de `CsvParser` genérica passando este tipo a ser `CsvParser<T>`.
