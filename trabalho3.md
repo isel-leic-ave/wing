@@ -19,17 +19,43 @@
 
 ## Parte 1 --  `CsvParser` genérica e _lazy_
 
+### Alínea A)
+
 Torne a API de `CsvParser` genérica passando este tipo a ser `CsvParser<T>`.
 Remova o parâmetro `klass` do seu construtor, passando este a ser determinado a
 partir de `T`.
 Por sua vez o método `Parse()` deixa de retornar `object[]` e passa a retornar
-`IEnumerable<T>`
+`T[]`.
+
+### Alínea B)
+
+Adicione a `CsvParser` um método `Parse(Func<string, T> parser)` em que a função
+`parser` é a responsável por fazer o processamento da informação de cada linha e
+instanciação do tipo `T`.
+
+Nesta utilização NÃO é usada reflexão na instanciação de `T`. Mantenha em
+funcionamento a possibilidade de utilização de um dos dois métodos:
+`Parse()` ou `Parse(Func<string, T> parser)`.
+
+Use este novo método `Parse(...)` para verificar num teste unitário que o
+`parser` é executado de forma _eager_  no momento em que é chamado o
+`Parse(...)`.
+
+### Alínea C)
 
 Remova da classe `CsvParser` todas as estruturas auxiliares com manutenção de
 estado das linhas processadas (e.g. listas). O resultado do processamento das
 linhas deverá ser sempre mantido na forma de uma instância de `IEnumerable`.
 Repare que o tipo `String` também implementa `IEnumerable<Char>` pelo que deverá
 eliminar a utilização do método `Split` e NÃO usar arrays auxiliares.
+
+Só poderá criar _arrays_ nos métodos `Parse`. 
+
+Implenente um novo método `ToEnumerable(Func<string, T> parser)` que funciona em
+alternativa ao `Parse` e que retorna uma instância  de `IEnumerable<T>` _lazy_.
+
+Verifique num teste unitário que o `parser` de `ToEnumerable`é executado de
+forma _lazy_ apenas no momenento em que se itera sobre o resultado deste método.
 
 ## Parte 2 --  Mocky, _delegates_ e genéricos
 
