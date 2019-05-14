@@ -47,15 +47,15 @@ Remova da classe `CsvParser` todas as estruturas auxiliares com manutenção de
 estado das linhas processadas (e.g. listas). O resultado do processamento das
 linhas deverá ser sempre mantido na forma de uma instância de `IEnumerable`.
 Repare que o tipo `String` também implementa `IEnumerable<Char>` pelo que deverá
-eliminar a utilização do método `Split` e NÃO usar arrays auxiliares.
+eliminar a utilização do método `Split` e NÃO usar _arrays_ auxiliares.
 
 Só poderá criar _arrays_ nos métodos `Parse`. 
 
-Implenente um novo método `ToEnumerable(Func<string, T> parser)` que funciona em
+Implemente um novo método `ToEnumerable(Func<string, T> parser)` que funciona em
 alternativa ao `Parse` e que retorna uma instância  de `IEnumerable<T>` _lazy_.
 
 Verifique num teste unitário que o `parser` de `ToEnumerable`é executado de
-forma _lazy_ apenas no momenento em que se itera sobre o resultado deste método.
+forma _lazy_ apenas no momento em que se itera sobre o resultado deste método.
 
 ## Parte 2 --  Mocky, _delegates_ e genéricos
 
