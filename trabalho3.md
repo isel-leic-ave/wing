@@ -33,9 +33,10 @@ Adicione a `CsvParser` um método `Parse(Func<string, T> parser)` em que a funç
 `parser` é a responsável por fazer o processamento da informação de cada linha e
 instanciação do tipo `T`.
 
-Nesta utilização NÃO é usada reflexão na instanciação de `T`. Mantenha em
-funcionamento a possibilidade de utilização de um dos dois métodos:
-`Parse()` ou `Parse(Func<string, T> parser)`.
+Na utilização do `Parse(Func<string, T> parser)` NÃO é usada reflexão na
+instanciação de `T`. 
+Mantenha em funcionamento a possibilidade de utilização de um dos dois métodos:
+`Parse()` (**com** reflexão) ou `Parse(Func<string, T> parser)` (**sem** reflexão).
 
 Use este novo método `Parse(...)` para verificar num teste unitário que o
 `parser` é executado de forma _eager_  no momento em que é chamado o
