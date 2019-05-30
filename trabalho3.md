@@ -104,3 +104,6 @@ m.When("Add").then((a, b, c) => a + b + c);
 ```
 
 A utilização através do método `With` também deve surpotar _overload_.
+
+**Nota**: a utilização de `Dictionary<string, MockMethod>` em `Mocker` não serve os requistos
+de _overload_.
