@@ -88,3 +88,19 @@ mockCalc.When("Add").Then<int, int, double>((a, b) => a + b);
 ...
 mockReq.When("Dispose").Then<string>((arg) => {/* do nothing */});
 ```
+
+## Requisito
+
+A biblioteca Mocky deve suportar _overload_ de métodos.
+Ou seja, deve suportar a adição do mesmo método através do `When` diversas vezes
+quando este se refere a tipos de parâmetros diferentes.
+Realize testes unitários que demonstrem o correcto funcionamento de cenários de _overload_.
+Por exemplo, acrescente à interface `ICalculator` um novo método `Add(int, int,int): int`
+e um teste que especifique comportamento para todos os métodos `Add` de
+`ICalculator`. Exemplo:
+```csharp
+m.When("Add").then((a, b) => a + b);
+m.When("Add").then((a, b, c) => a + b + c);
+```
+
+A utilização através do método `With` também deve surpotar _overload_.
